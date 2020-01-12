@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	{% block title %}<title>Torrent-Games - скачать игры на компьютер через торрент</title>{% endblock %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,500,700&amp;subset=cyrillic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lilita+One&display=swap" rel="stylesheet">
+ 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/article.css'%}">
+</head>
+<body>	
+	<div class="wrapper">
+		<div class="header">
+			<div class="container">
+
+				<h1 class="title">
+					<a href="/" id="title-link"> <strong>TORRENT GAMES</strong></a>
+				</h1>
+
+			</div>
+		</div>
+
+		<div class="separator"></div>
+
+		<div class="content">
+			<div class="container">
+
+				<div class="sidebar">
+					
+					<h1 class="sidebar-title">КАТЕГОРИИ</h1>
+
+					<nav class="sidebar-genres">
+						<ul class="genres-inner">
+
+							{% for genres in genres %}
+
+								<li class="genre">
+									<a class="genre-title" href="#">{{genres}}</a>
+								</li>
+
+							{% endfor %}
+
+						</ul>
+					</nav>
+
+				</div>
+
+				<div class="right-content">
+					
+					{% block content %}
+
+						<center><h2 class="right-content-title">НОВИНКИ</h2></center>
+
+						{% for article_preview in article_preview %}
+
+							<div class="article-preview">
+								
+								<div class="article-image">
+									<a href="{% url 'article' pk=article_preview.pk%}" title="{{article_preview.name}}">
+										
+										<img class="article-image-link" src="{{article_preview.img.url}}" alt="{{article_preview.name}}" title="{{article_preview.name}}">
+
+									</a>
+								</div>
+
+								<center>
+									<a class="article-preview-title" href="{% url 'article' pk=article_preview.pk%}">{{article_preview.name}}</a>
+								</center>
+
+							</div>
+
+							{% endfor %}			
+
+					{% endblock %}
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="separator1"></div>
+
+		<div class="footer">
+			<div class="container">
+
+				<div id="copyright"><strong>© 2019 Официальный сайт <span style="color: orange">Torrent Games</span>.</strong></div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

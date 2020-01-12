@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Скачать {{game.name}} торрент бесплатно</title>{% endblock %}
+
+{% block content %}
+
+	<div class="article">
+
+		<center><h2 class="right-content-title">{{game.name}}</h2></center>
+
+		<div class="article-fullview">
+			<img class="article-fullview" src="{{game.img.url}}" alt="{{game.name}}" title="{{game.name}}">
+		</div>
+
+		<div style="padding-left: 215px;">
+			<span style="font-weight: bold;">Дата выхода:</span> {{game.releasse_date}}
+			<br>
+			<span style="font-weight: bold;">Жанр:</span> {% for genre in game.genre.all %} {{genre}}{% if not forloop.last %}, {% endif %} {% endfor %}
+			<br>
+			<span style="font-weight: bold;">Разработчик:</span> {{game.developer}}
+			<br>
+			<span style="font-weight: bold;">Язык интерфейса:</span> {% for interface_language in game.interface_language.all %} {{interface_language}}{% if not forloop.last %}, {% endif %} {% endfor %}
+			<br>
+			<span style="font-weight: bold;">Язык озвучки:</span> {% for voice_language in game.voice_language.all %} {{voice_language}}{% if not forloop.last %}, {% endif %} {% endfor %}
+		</div>
+
+		<div style="clear: both;"></div>
+
+		<br>
+
+		<span style="color: #b8771d; font-size: 19px; font-family: 'Roboto Condensed', sans-serif;">Описание игры:</span>
+
+		<br>
+
+		<span style="font-size: 14px; color: #acb2b8;">{{game.description|safe}}</span>
+
+		<span style="color: #b8771d; font-size: 19px; font-family: 'Roboto Condensed', sans-serif;">Трейлер / Геймплей:</span>
+
+		<br><br>
+
+		<center><iframe width="640" height="360" src="{{game.gameplay}}" frameborder="0" allowfullscreen=""></iframe></center>
+
+		<br>
+
+		<span style="color: #b8771d; font-size: 19px; font-family: 'Roboto Condensed', sans-serif;">Скриншоты из игры:</span>	
+
+		<br>
+		<br>
+
+		<center><div class="screenshot-board">
+
+			<a href="{{game.scr.url}}" rel="highslide">
+
+				<img src="{{game.scr.url}}" alt="Control" title="Control">
+
+			</a>
+
+			<a href="{{game.scr2.url}}" rel="highslide">
+
+				<img src="{{game.scr2.url}}" alt="Control" title="Control">
+
+			</a>
+
+			<a href="{{game.scr3.url}}" rel="highslide">
+
+				<img src="{{game.scr3.url}}" alt="Control">
+
+			</a>
+
+			<a href="{{game.scr4.url}}" rel="highslide">
+
+				<img src="{{game.scr4.url}}" alt="Control" title="Control">
+
+			</a>
+
+		</div></center>
+
+		<center><span style="color: #b8771d; font-size: 19px; font-family: 'Roboto Condensed', sans-serif;">Размер: {{game.weight}} | RePack от {{game.RePack_by}}</span></center>
+
+		<ul class="torrent-btn" style="margin-top: 22px">
+			<center>
+				<a href="{{game.torrent.url}}" class="torrent" download>Скачать торрент</a>
+			</center>
+		</ul>
+
+	</div>
+
+{% endblock %}
