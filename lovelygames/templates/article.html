@@ -13,7 +13,7 @@
 		</div>
 
 		<div style="padding-left: 215px;">
-			<span style="font-weight: bold;">Дата выхода:</span> {{game.releasse_date}}
+			<span style="font-weight: bold;">Дата выхода:</span> {{game.release_date}}
 			<br>
 			<span style="font-weight: bold;">Жанр:</span> {% for genre in game.genre.all %} {{genre}}{% if not forloop.last %}, {% endif %} {% endfor %}
 			<br>
