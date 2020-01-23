@@ -21,7 +21,7 @@ class Article(models.Model):
 	name = models.CharField(max_length = 50)
 	img = models.ImageField(upload_to = 'uploads/')
 
-	release_date = models.IntegerField()
+	releasse_date = models.IntegerField()
 	genre = models.ManyToManyField(Genre)
 	developer = models.CharField(max_length = 50)
 	interface_language = models.ManyToManyField(Language, 'Интерфейс')
