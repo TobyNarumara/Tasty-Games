@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='article',
-            name='releasse_date',
+            name='release_date',
             field=models.IntegerField(),
         ),
     ]

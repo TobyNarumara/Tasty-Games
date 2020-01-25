@@ -13,8 +13,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='article',
-            name='releasse_date',
-            field=models.DateField(auto_now_add=True, default=django.utils.timezone.now),
-            preserve_default=False,
+            name='release_date',
+            field=models. IntegerField()
         ),
     ]

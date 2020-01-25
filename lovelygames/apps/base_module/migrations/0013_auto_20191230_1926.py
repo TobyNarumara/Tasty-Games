@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='article',
-            name='releasse_date',
+            name='release_date',
             field=models.IntegerField(max_length=4),
         ),
     ]
